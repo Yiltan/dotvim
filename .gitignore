@@ -1,0 +1,3 @@
+# Ignore all pluggins other than vim-plug
+plugged
+!plugged/vim-plug
