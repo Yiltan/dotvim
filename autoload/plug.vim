@@ -1,1 +1,0 @@
-/home/stallman/.vim/plugged/vim-plug/plug.vim

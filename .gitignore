@@ -1,5 +1,6 @@
 # Ignore all pluggins other than vim-plug
-plugged
+plugged/**
 !plugged/vim-plug
 
-colors
+colors/**
+autoload/plug.vim
