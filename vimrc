@@ -10,6 +10,8 @@ Plug 'scrooloose/nerdtree'
 autocmd vimenter * NERDTree " Open NERDTree automatically
 autocmd vimenter * wincmd p " Move cursor into file automatically
 
+let g:NERDTreeWinSize= 40
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Syntastic - Syntax Checker
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -40,21 +42,34 @@ call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SETTINGS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" A E S T H E T I C S
 set t_Co=256                        " 256 colours
+set cc=100                          " Set width bar
 set number                          " Line numbers
-set autoread                        " Update open files
-set updatetime=250                  " File update interval
-set tabstop=4                       " The width of a tab is set to 4.
-set shiftwidth=4                    " Indents will have a width of 4
-set softtabstop=4                   " Number of columns for a tab
-set expandtab                       " Expand tabs to spaces
-au FileType * set fo-=c fo-=r fo-=o " Disable annoying vim comment after newline
 set splitbelow                      " Open splits below the current pane
 set splitright                      " Open vsplits to the right of the current pane
 set list                            " Show trailing whitespace and tabs
 set listchars=tab:→\ ,trail:▫       " Characters to show as above
-set cc=100                          " Set width bar
-set nowrap                          " Disable wrap by default
+
+" File settings
+set autoread                        " Update open files
+set updatetime=250                  " File update interval
+au FileType * set fo-=c fo-=r fo-=o " Disable annoying vim comment after newline
+
+" Tab settings
+set tabstop=4                       " The width of a tab is set to 4.
+set shiftwidth=4                    " Indents will have a width of 4
+set softtabstop=4                   " Number of columns for a tab
+set expandtab                       " Expand tabs to spaces
+
+" Line wrapping
+set wrap
+set linebreak
+set nolist
+
+"Backup files. Stop annoying .swp, .bak files
+set nobackup
+set nowritebackup
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MAPPINGS
