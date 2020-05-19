@@ -2,6 +2,7 @@
 
 This repo contains my vim config so I can have the same config when sshing into various servers.
 
+![screenshot](screenshot.png)
 ## Installation
 Clone this repo into your ```$HOME``` folder. Make sure you include the recurse submodules flag.
 
