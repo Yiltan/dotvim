@@ -14,5 +14,6 @@ vim +silent +VimEnter +PlugInstall +qall # install plugins
 mkdir colors
 ln -sf ~/.vim/plugged/vim-monokai/colors/monokai.vim  ~/.vim/colors/monokai.vim
 
-
+# Update bashrc with my changes
+cat bashrc >> ~/.bashrc
 
