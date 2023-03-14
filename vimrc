@@ -3,6 +3,12 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged')
 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-gitgutter (git diffs for vim)
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'airblade/vim-gitgutter'
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NERDTree -  Project Explorer - Tree View of files/directories
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -15,20 +21,20 @@ let g:NERDTreeWinSize= 40
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Syntastic - Syntax Checker
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plug 'vim-syntastic/syntastic'
-
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 0
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 1
-
-let g:syntastic_cpp_compiler = "g++"
-let g:syntastic_cpp_compiler_options = "-std=c++11 -Wall -Wextra -Wpedantic"
-let g:syntastic_cpp_checkers = ['syntastic-cpp-gcc']
+"Plug 'vim-syntastic/syntastic'
+"
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+"
+"let g:syntastic_always_populate_loc_list = 0
+"let g:syntastic_auto_loc_list = 0
+"let g:syntastic_check_on_open = 0
+"let g:syntastic_check_on_wq = 1
+"
+"let g:syntastic_cpp_compiler = "g++"
+"let g:syntastic_cpp_compiler_options = "-std=c++11 -Wall -Wextra -Wpedantic"
+"let g:syntastic_cpp_checkers = ['syntastic-cpp-gcc']
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vim Monokai - Sumblime Text Colours
@@ -57,9 +63,9 @@ set updatetime=250                  " File update interval
 au FileType * set fo-=c fo-=r fo-=o " Disable annoying vim comment after newline
 
 " Tab settings
-set tabstop=4                       " The width of a tab is set to 4.
-set shiftwidth=4                    " Indents will have a width of 4
-set softtabstop=4                   " Number of columns for a tab
+set tabstop=2                       " The width of a tab is set to 2.
+set shiftwidth=2                    " Indents will have a width of 2
+set softtabstop=2                   " Number of columns for a tab
 set expandtab                       " Expand tabs to spaces
 
 " Line wrapping
@@ -78,8 +84,6 @@ set foldmethod=syntax
 " GNU Formatting
 setlocal cindent
 setlocal cinoptions=>4,n-2,{2,^-2,:2,=2,g0,h2,p5,t0,+2,(0,u0,w1,m1
-setlocal shiftwidth=2
-setlocal softtabstop=2
 setlocal textwidth=79
 setlocal fo-=ro fo+=cql
 
