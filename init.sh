@@ -16,3 +16,5 @@ ln -sf ~/.vim/plugged/vim-monokai/colors/monokai.vim  ~/.vim/colors/monokai.vim
 
 # Update bashrc with my changes
 cat bashrc >> ~/.bashrc
+#TODO: add a check for this line so I dont have it writting a million times into ~/.bashrc
+echo "export PATH=$(pwd)/bin/:\$PATH" >> ~/.bashrc

@@ -1,0 +1,47 @@
+#!/bin/bash
+#
+# optpdf file.pdf
+#   This script will attempt to optimize the given pdf
+# This is not my code, I took off of stackoverflow but I forget where...
+
+file="$1"
+echo $file
+filebase="$(basename "$file" .pdf)"
+optfile="/tmp/$$-${filebase}_opt.pdf"
+cmd="gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dNOPAUSE -dQUIET -dBATCH -sOutputFile="${optfile}" "${file}""
+
+eval $cmd
+
+if [ $? == '0' ]; then
+  while [ 1 ];
+  do
+    if [[ $OSTYPE == 'darwin'* ]];
+    then
+      optsize=$(stat -f "%z" "${optfile}")
+      orgsize=$(stat -f "%z" "${file}")
+    else
+      optsize=$(stat -c "%s" "${optfile}")
+      orgsize=$(stat -c "%s" "${file}")
+    fi
+
+    if [ "${optsize}" -eq 0 ]; then
+        echo "No output!  Keeping original"
+        rm -f "${optfile}"
+        exit;
+    fi
+
+    if [ ${optsize} -ge ${orgsize} ]; then
+        echo "Didn't make it smaller! Keeping original"
+        rm -f "${optfile}"
+        exit;
+    fi
+
+    bytesSaved=$(expr $orgsize - $optsize)
+    percent=$(expr $optsize '*' 100 / $orgsize)
+    echo Saving $bytesSaved bytes \(now ${percent}% of old\)
+    rm "${file}"
+    mv "${optfile}" "${file}"
+
+    eval $cmd
+  done
+fi
