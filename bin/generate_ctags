@@ -1,0 +1,18 @@
+#!/bin/bash
+
+if [ $# -eq 0 ];
+then
+  echo "Please pass directory as argument: ./generate_ctags <dir_name>"
+  exit
+fi
+
+echo Generating ctags for $dir
+
+dir="$1"
+old_dir=$(pwd)
+
+cd $dir
+
+ctags --recurse=yes --exclude=.git
+
+cd $old_dir
