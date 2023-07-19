@@ -63,9 +63,9 @@ set updatetime=250                  " File update interval
 au FileType * set fo-=c fo-=r fo-=o " Disable annoying vim comment after newline
 
 " Tab settings
-set tabstop=2                       " The width of a tab is set to 2.
-set shiftwidth=2                    " Indents will have a width of 2
-set softtabstop=2                   " Number of columns for a tab
+set tabstop=4                       " The width of a tab is set to 4.
+set shiftwidth=4                    " Indents will have a width of4
+set softtabstop=4                   " Number of columns for a tab
 set expandtab                       " Expand tabs to spaces
 
 " Line wrapping
@@ -86,6 +86,9 @@ setlocal cindent
 setlocal cinoptions=>4,n-2,{2,^-2,:2,=2,g0,h2,p5,t0,+2,(0,u0,w1,m1
 setlocal textwidth=79
 setlocal fo-=ro fo+=cql
+
+" Other Settings
+set modifiable
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MAPPINGS
