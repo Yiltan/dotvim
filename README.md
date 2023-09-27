@@ -4,11 +4,8 @@ This repo contains my vim config so I can have the same config when sshing into 
 
 ![screenshot](screenshot.png)
 ## Installation
-Clone this repo into your ```$HOME``` folder. Make sure you include the recurse submodules flag.
 
-```# git clone --recurse-submodules https://www.github.com/yiltan/dotvim .vim```
-
-Move inside the ```.vim``` folder and run the ```init.sh``` script.
+```cd && git clone --recurse-submodules https://www.github.com/yiltan/dotvim .vim && cd .vim && ./init.sh```
 
 ## Plugins
 
