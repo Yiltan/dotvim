@@ -52,6 +52,13 @@ set shiftwidth=2                    " Indents will have a width of 2
 set softtabstop=2                   " Number of columns for a tab
 set expandtab                       " Expand tabs to spaces
 
+" clang-format integration for C/C++
+" Uses -style=file, which searches up from the file's path for the nearest
+" .clang-format, so each project's own style is respected.
+autocmd FileType c,cpp setlocal formatprg=clang-format\ -style=file\ -assume-filename=%
+autocmd FileType c,cpp nnoremap <buffer> <leader>cf :%!clang-format -style=file -assume-filename=%<CR>
+autocmd FileType c,cpp vnoremap <buffer> <leader>cf :!clang-format -style=file -assume-filename=%<CR>
+
 " Line wrapping
 set wrap
 set linebreak
@@ -84,5 +91,17 @@ fun! <SID>StripTrailingWhitespaces()
 endfun
 
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
+
+" Run clang-format on C/C++ buffers before writing, but only if the buffer
+" actually has unsaved changes (skip on a no-op :w).
+fun! <SID>ClangFormatBuffer()
+   if &modified && executable('clang-format')
+      let view = winsaveview()
+      execute '%!clang-format -style=file -assume-filename=' . shellescape(expand('%'))
+      call winrestview(view)
+   endif
+endfun
+
+autocmd FileType c,cpp autocmd! BufWritePre <buffer> call <SID>ClangFormatBuffer()
 
 "Type :PlugInstall into vim
