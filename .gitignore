@@ -4,3 +4,5 @@ plugged/**
 
 colors/**
 autoload/plug.vim
+bin/clang*
+tools/*

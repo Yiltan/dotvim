@@ -3,7 +3,6 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged')
 
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-gitgutter (git diffs for vim)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -26,27 +25,16 @@ syntax enable
 silent! colorscheme monokai
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" yegappan/lsp - Language Server Protocol client
+" Plug End
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plug 'yegappan/lsp'
-
 call plug#end()
-
-" Register language servers here, e.g.:
-" let lspServers = [#{
-" \   name: 'clangd',
-" \   filetype: ['c', 'cpp'],
-" \   path: '/usr/bin/clangd',
-" \   args: ['--background-index']
-" \ }]
-" autocmd VimEnter * call LspAddServer(lspServers)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SETTINGS
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " A E S T H E T I C S
 set t_Co=256                        " 256 colours
-set cc=100                          " Set width bar
+set cc=120                          " Set width bar
 set number                          " Line numbers
 set splitbelow                      " Open splits below the current pane
 set splitright                      " Open vsplits to the right of the current pane

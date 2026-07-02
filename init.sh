@@ -19,6 +19,20 @@ vim +silent "+PlugInstall --sync" +qall # install plugins
 mkdir -p colors
 ln -sf "$script_dir/plugged/vim-monokai/colors/monokai.vim" ~/.vim/colors/monokai.vim
 
+mkdir -p tools bin
+
+# Install clang-format (no root required) via a dedicated venv
+if [ -x "$script_dir/bin/clang-format" ]; then
+  echo "Note: clang-format already installed at $script_dir/bin/clang-format, skipping"
+else
+  echo "Installing clang-format..."
+  python3 -m venv "$script_dir/tools/clang-format-venv"
+  "$script_dir/tools/clang-format-venv/bin/pip" install --quiet clang-format
+
+  ln -sf "$script_dir/tools/clang-format-venv/bin/clang-format" "$script_dir/bin/clang-format"
+  echo "Installed clang-format to $script_dir/bin/clang-format"
+fi
+
 # Update bashrc with my changes
 marker="# >>> dotvim bashrc <<<"
 if ! grep -qF "$marker" ~/.bashrc 2>/dev/null; then
@@ -30,7 +44,7 @@ else
   echo "Note: dotvim bashrc block already present in ~/.bashrc, skipping"
 fi
 
-path_line="export PATH=$script_dir/bin/:\$PATH"
+path_line="export PATH=$script_dir/bin:\$PATH"
 if ! grep -qF "$path_line" ~/.bashrc 2>/dev/null; then
   echo "$path_line" >> ~/.bashrc
 else
