@@ -23,9 +23,23 @@ let g:NERDTreeWinSize= 40
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'sickill/vim-monokai'
 syntax enable
-colorscheme monokai
+silent! colorscheme monokai
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" yegappan/lsp - Language Server Protocol client
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'yegappan/lsp'
 
 call plug#end()
+
+" Register language servers here, e.g.:
+" let lspServers = [#{
+" \   name: 'clangd',
+" \   filetype: ['c', 'cpp'],
+" \   path: '/usr/bin/clangd',
+" \   args: ['--background-index']
+" \ }]
+" autocmd VimEnter * call LspAddServer(lspServers)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SETTINGS

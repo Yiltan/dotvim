@@ -13,7 +13,7 @@ git submodule update --init --recursive
 (cd plugged/vim-plug && git checkout 0.10.0) # current version as of 2018/11/05
 mkdir -p autoload
 ln -sf "$script_dir/plugged/vim-plug/plug.vim" ~/.vim/autoload/plug.vim
-vim +silent +VimEnter +PlugInstall +qall # install plugins
+vim +silent "+PlugInstall --sync" +qall # install plugins
 
 # Add Colours
 mkdir -p colors
