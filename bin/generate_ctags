@@ -6,13 +6,13 @@ then
   exit
 fi
 
-echo Generating ctags for $dir
-
 dir="$1"
 old_dir=$(pwd)
 
-cd $dir
+echo Generating ctags for "$dir"
+
+cd "$dir" || exit 1
 
 ctags --recurse=yes --exclude=.git
 
-cd $old_dir
+cd "$old_dir"
